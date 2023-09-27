@@ -12,7 +12,7 @@
 
 ### A showcase of the most beautiful places in India for your interest.
 
-##Technology Used :
+## Technology Used :
 
 ### Next.js and Vercel
 
