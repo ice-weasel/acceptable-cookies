@@ -1,35 +1,15 @@
 'use client'
-import { ReactElement, ChangeEvent, FocusEvent } from 'react'; // Import necessary types
-export const sendContactForm = async (data: {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}): Promise<void> => {
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-  });
-
-  if (!res.ok) throw new Error("Failed to send message");
-
-  return res.json();
-};
-
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-} from '@chakra-ui/form-control'; // Updated import path
+import { ReactElement, ChangeEvent, FocusEvent } from 'react';
+import { FormControl, FormErrorMessage, FormLabel } from '@chakra-ui/form-control';
 import { useState } from 'react';
 import { Button, Input } from 'antd';
+import { sendContactForm } from './api'; // Import your sendContactForm function
 
 const initValues = { name: '', email: '', subject: '', message: '' };
 
 interface State {
   isLoading: boolean;
-  error: string; // Explicitly type the `error` property to `string`.
+  error: string;
   values: {
     name: string;
     email: string;
@@ -37,7 +17,6 @@ interface State {
     message: string;
   };
 }
-
 
 const initState: State = { isLoading: false, error: '', values: initValues };
 
@@ -49,7 +28,6 @@ export default function Home(): ReactElement {
 
   const onBlur = ({ target }: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setTouched((prev) => ({ ...prev, [target.name]: true }));
-    type ButtonVariant = "default" | "primary" | "dashed" | "link" | "text" | `"outline"`
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setState((prev) => ({
@@ -60,41 +38,41 @@ export default function Home(): ReactElement {
       },
     }));
 
-    const onSubmit = async () => {
-      setState((prev) => ({
-        ...prev,
-        isLoading: true,
-      }));
-    
-      try {
-        await sendContactForm(values);
-        setTouched({});
-        setState(initState);
-        // Add your toast implementation here
-      } catch (error: any) {
-        if (typeof error === "string") {
-          setState((prev) => ({
-            ...prev,
-            isLoading: false,
-            error: error,
-          }));
-        } else {
-          // Handle non-string errors here
-        }
-      }
-   
-   // Re-enable the Submit button
-document.querySelector("button[type='submit']").disabled = false;
+  const onSubmit = async () => {
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
 
-   
-    };
-    
-    
+    try {
+      await sendContactForm(values);
+      setTouched({});
+      setState(initState);
+      // Add your toast implementation here
+    } catch (error: any) {
+      if (typeof error === "string") {
+        setState((prev) => ({
+          ...prev,
+          isLoading: false,
+          error: error,
+        }));
+      } else {
+        // Handle non-string errors here
+        console.error(error); // Log the error for debugging
+        setState((prev) => ({
+          ...prev,
+          isLoading: false,
+          error: "An error occurred while sending the message.",
+        }));
+      }
+    }
+  };
+
   return (
-    <div className="items-center mt-5  flex flex-col text-3xl jutify-between">
+    <div className="container max-w-[450px] mt-12" >
       <h1>Contact</h1>
       {error && (
-        <p text-color="red.300" className="my-4 text-3xl">
+        <p style={{ color: 'red' }} className="my-4 text-3xl">
           {error}
         </p>
       )}
@@ -102,11 +80,56 @@ document.querySelector("button[type='submit']").disabled = false;
       <FormControl isRequired isInvalid={touched.name && !values.name} mb={5}>
         <FormLabel>Name</FormLabel>
         <Input
-        className='mt-5 text-black'
+          className='mt-5 text-black'
           type="text"
           name="name"
-          // Add appropriate props for error handling
           value={values.name}
+          onChange={handleChange}
+          onBlur={onBlur}
+        />
+        <FormErrorMessage>Required</FormErrorMessage>
+      </FormControl>
+
+      <FormControl isRequired isInvalid={touched.email && !values.email} mb={5}>
+        <FormLabel>Email</FormLabel>
+        <Input
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={onBlur}
+        />
+        <FormErrorMessage>Required</FormErrorMessage>
+      </FormControl>
+
+      <FormControl
+        mb={5}
+        isRequired
+        isInvalid={touched.subject && !values.subject}
+      >
+        <FormLabel>Subject</FormLabel>
+        <Input
+          type="text"
+          name="subject"
+          value={values.subject}
+          onChange={handleChange}
+          onBlur={onBlur}
+        />
+        <FormErrorMessage>Required</FormErrorMessage>
+      </FormControl>
+
+      <FormControl
+        isRequired
+        isInvalid={touched.message && !values.message}
+        mb={5}
+      >
+        <FormLabel>Message</FormLabel>
+        <Textarea
+          type="text"
+          name="message"
+          rows={4}
+          errorBorderColor="red.300"
+          value={values.message}
           onChange={handleChange}
           onBlur={onBlur}
         />
@@ -116,14 +139,16 @@ document.querySelector("button[type='submit']").disabled = false;
       {/* Repeat similar FormControl sections for other input fields */}
 
       <Button
-  className=" mt-5 text-white" // Add your custom CSS class here
-  type="primary" // You can set the button type like 'primary', 'default', etc.
-  loading={isLoading}
-  disabled={!values.name || !values.email || !values.subject || !values.message}
-  onClick={onSubmit}
->
-  Submit
-</Button>
+        className="mt-5 text-white"
+        type="primary"
+        loading={isLoading}
+        disabled={!values.name || !values.email || !values.subject || !values.message}
+        onClick={onSubmit}
+      >
+        Submit
+      </Button>
+
+
     </div>
   );
 }
