@@ -1,9 +1,21 @@
-    const handler = {req,res} => {
-        if(req.method === "POST")
-        {
-            const data = req.body;
-             if(!values.name || !values.email || !values.subject || !values.message)
-        }
+import { Request, Response } from "express";
 
-        return res.status(400).json({message: "Bad Request"})
-    }1
+interface ContactFormValues {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+const handler = (req: Request, res: Response, values: ContactFormValues): Response<any, Record<string, any>> => {
+  if (req.method === "POST") {
+    // Validate the values
+    if (!values.name || !values.email || !values.subject || !values.message) {
+      return res.status(400).json({ message: "Bad Request" });
+    }
+
+    // Send the message
+    // ...
+  }
+  return res.status(200).json({ message: "Message sent successfully" });
+};
