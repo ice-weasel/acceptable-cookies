@@ -1,25 +1,25 @@
-### GoSafe
+# GoSafe
 
-#GoSafe is a web application designed for the safety of travellers solo or as a group.
+### GoSafe is a web application designed for the safety of travellers solo or as a group.
 
-##Features: 
+## Features: 
 
-#Personalized Log keeping of your trips.
+### Personalized Log keeping of your trips.
 
-#Timely checkup to verify your safety
+### Timely checkup to verify your safety
 
-#Noticing authorities in case of any dangers
+### Noticing authorities in case of any dangers
 
-#A showcase of the most beautiful places in India for your interest.
+### A showcase of the most beautiful places in India for your interest.
 
 ##Technology Used :
 
-# Next.js and Vercel
+### Next.js and Vercel
 
-# Typescript
+### Typescript
 
-# Firebase
+### Firebase
 
 ## Collaborators 
 
-@Acceptable-Cookies
+### @Acceptable-Cookies
