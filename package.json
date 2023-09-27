@@ -18,9 +18,11 @@
     "next": "latest",
     "nodemailer": "^6.9.5",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
+    "@types/firebase": "^3.2.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
