@@ -184,13 +184,8 @@ export default function Home() {
                     </h5>
                   </a>
                   <p className="mb-3 text-sm text-gray-700 dark:text-gray-400">
-                    Freshers' Day events are known for their diverse dance
-                    performances. Seniors showcase their experience with
-                    traditional, contemporary, or fusion styles, while freshers
-                    bring youthful energy and creativity. External dance groups
-                    may join, adding variety. These performances foster
-                    inclusivity, bringing students of all backgrounds together
-                    to celebrate the universal language of dance.
+                  Rajasthan is one of India's most popular tourist destinations, known for its rich history, vibrant culture, stunning architecture, and diverse landscapes.
+                  Rajasthan is a destination that caters to a wide range of interests, from history and culture to nature and adventure. It offers a unique blend of tradition and modernity, making it a must-visit place for travelers looking to explore India's diversity.
                   </p>
                 </div>
               </div>
