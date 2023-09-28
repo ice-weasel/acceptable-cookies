@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword,AuthError } from 'firebase/auth';
+import React, { useState } from "react";
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword, AuthError } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { AuthErrorCodes } from 'firebase/auth/cordova';
-import 'tailwindcss/tailwind.css'
+import { AuthErrorCodes } from "firebase/auth/cordova";
+import "tailwindcss/tailwind.css";
 
-import Link from 'next/link'
-import app from '@/app/firebase';
+import Link from "next/link";
+import app from "@/app/firebase";
 
 // Your Firebase configuration
 
-
 // Initialize Firebase
-
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
-  
+
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-   
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -33,22 +30,20 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('handleLogin function called'); 
-    
+    console.log("handleLogin function called");
+
     const { email, password } = formData;
 
     try {
       const auth = getAuth(app);
       await signInWithEmailAndPassword(auth, email, password);
       setError(null);
-      window.location.href = '/gosafe'; 
+      window.location.href = "/gosafe";
     } catch (error) {
-        if (error instanceof FirebaseError) {
-            // The error variable is now of type FirebaseError
-            console.log(error);
-            
-          }
-          
+      if (error instanceof FirebaseError) {
+        // The error variable is now of type FirebaseError
+        console.log(error);
+      }
     }
   };
 
@@ -104,7 +99,7 @@ export default function Login() {
             {error && <p className="text-red-500">{error}</p>}
 
             <p className="text-sm font-light text-black dark:text-black">
-              Dont have an account yet?{' '}
+              Dont have an account yet?{" "}
               <Link
                 href="/signup"
                 className="font-medium text-primary-600 hover:underline dark:text-primary-500"
