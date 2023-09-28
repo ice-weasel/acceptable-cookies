@@ -149,7 +149,7 @@ export default function Home() {
           </div>
           <div className="p-6 flex items-center border border-white border-4 hidden md:flex">
             <div>
-              <Image
+              <img
                 src="https://imgmedia.lbb.in/media/2023/05/646e0964339307692de646b6_1684932964286.jpg"
                 alt="Indian Aesthetic Dance"
                 width={500}
@@ -172,10 +172,9 @@ export default function Home() {
             <div className="flex flex-row sm:flex-row justify-center ">
               <div className="max-w-5xl mb-6 sm:mb-0 border rounded-lg shadow bg-black sm:mr-4">
                 <a>
-                  <Image
+                  <img
                     className="rounded-t-lg"
                     src="https://wallpapers.com/images/featured/rajasthan-background-szqcyb11dicz68ae.jpg"
-                    alt=""
                   />
                 </a>
                 <div className="p-4">
@@ -185,8 +184,13 @@ export default function Home() {
                     </h5>
                   </a>
                   <p className="mb-3 text-sm text-gray-700 dark:text-gray-400">
-                  Rajasthan is one of India's most popular tourist destinations, known for its rich history, vibrant culture, stunning architecture, and diverse landscapes.
-                  Rajasthan is a destination that caters to a wide range of interests, from history and culture to nature and adventure. It offers a unique blend of tradition and modernity, making it a must-visit place for travelers looking to explore India's diversity.
+                    Freshers' Day events are known for their diverse dance
+                    performances. Seniors showcase their experience with
+                    traditional, contemporary, or fusion styles, while freshers
+                    bring youthful energy and creativity. External dance groups
+                    may join, adding variety. These performances foster
+                    inclusivity, bringing students of all backgrounds together
+                    to celebrate the universal language of dance.
                   </p>
                 </div>
               </div>
@@ -196,10 +200,9 @@ export default function Home() {
             <div className="flex flex-row sm:flex-row justify-center ">
               <div className="max-w-5xl  mb-6 sm:mb-0 border rounded-lg shadow bg-black sm:mr-4">
                 <a>
-                  <Image
+                  <img
                     className="rounded-t-lg"
                     src="https://wallpapercave.com/wp/wp9822330.jpg"
-                    alt=""
                   />
                 </a>
                 <div className="p-4">
@@ -226,9 +229,8 @@ export default function Home() {
             <div className="flex flex-row sm:flex-row justify-center ">
               <div className="max-w-5xl  border rounded-lg shadow bg-black">
                 <a>
-                  <Image
+                  <img
                     className="rounded-t-lg"
-                    alt=""
                     src="https://images.pexels.com/photos/6544756/pexels-photo-6544756.jpeg?cs=srgb&dl=pexels-jaiju-jacob-6544756.jpg&fm=jpg"
                   />
                 </a>
@@ -257,9 +259,8 @@ export default function Home() {
             <div className="flex flex-row sm:flex-row justify-center ">
               <div className="max-w-5xl  mb-6 sm:mb-0 border rounded-lg shadow bg-black sm:mr-4">
                 <a>
-                  <Image
+                  <img
                     className="rounded-t-lg"
-                    alt=""
                     src="https://images.pexels.com/photos/4481330/pexels-photo-4481330.jpeg?cs=srgb&dl=pexels-shivam-tak-4481330.jpg&fm=jpg"
                   />
                 </a>
@@ -289,9 +290,8 @@ export default function Home() {
             <div className="flex flex-row sm:flex-row justify-center ">
               <div className="max-w-5xl  mb-6 sm:mb-0 border rounded-lg shadow bg-black sm:mr-4">
                 <a>
-                  <Image
+                  <img
                     className="rounded-t-lg"
-                    alt=""
                     src="https://cdn.wallpapersafari.com/25/43/shVYSl.jpg"
                   />
                 </a>
