@@ -6,9 +6,9 @@
 
 ### Personalized Log keeping of your trips.
 
-### Timely checkup to verify your safety
+### Timely checkup to verify your safety.
 
-### Noticing authorities in case of any dangers
+### Noticing authorities in case of any dangers.
 
 ### A showcase of the most beautiful places in India for your interest.
 
